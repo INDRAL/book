@@ -33,7 +33,8 @@ client.connect()
     .then(() => console.log('Connected Successfully'))
     .catch(error => console.log('Failed to connect', error))
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
+// const PORT = process.env.PORT;
+const PORT=5000;
+app.listen(5000, () => {
   console.log(`Server is running ${PORT}.`);
 });
