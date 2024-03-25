@@ -23,7 +23,8 @@ function Login()
     axios
       .post(`http://localhost:5000/login`, { uemail, pswd })
       .then((resp) => {
-        var name=resp.data;
+        console.log(resp.data)
+        var name=resp.data['name'];
         sessionStorage.setItem("name",name);
         if(resp.status===200)
         {
@@ -32,26 +33,7 @@ function Login()
         }
       })
     }
- 
-   
 
- 
-  // LoginAuth(e)
-  //  {
-    
-  //   axios.post(`http://localhost:5000/login`, {
-  //          uemail : this.state.uemail,
-  //          pswd : this.state.pswd 
-  //   }).then ((resp) => {
-  //     if (resp.status === 200) {
-  //       this.navigate('/Mybookshelf',{ replace: true })
-  //     }
-  //     else{
-  //       console.log("err");
-  //     }
-  //  })
-  // }
- 
   const [uemail, setEmail] = useState()
   const [pswd, setPassword] = useState()
  
@@ -126,7 +108,6 @@ function Login()
 </Container>
 </div>
   )
-
-                  }
+  }
 
 export default Login

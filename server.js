@@ -7,10 +7,25 @@ const { MongoClient } = require('mongodb');
 const client = new MongoClient('mongodb://localhost:27017/');
 const db = client.db('Book');
 const usersCollection = db.collection('Users');
+const ObjectId = require('mongodb').ObjectId;
+// NEW_Book = {
+//   id: "9788120790780",
+//   progress: "25%",
+  
+// }
+
+// usersCollection.updateOne( 
+//   { _id : new ObjectId("65d0cecdc4f7f667ae6f8bb2") },
+//   { $push: { wishlist: NEW_Book } }
+// )
+
 app.use(cors());
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 require('dotenv').config();
+
+
+
 app.post("/login", async function(req, res){
   try {
       console.log(req.body);
@@ -18,7 +33,7 @@ app.post("/login", async function(req, res){
       if (user) { 
         //check if password matches
         if(req.body.pswd == user.paswd);
-        res.status(200).send(user.name);
+        res.status(200).send(user);
       } else {
         res.status(400).json({ error: "User doesn't exist" });
       }
@@ -27,7 +42,7 @@ app.post("/login", async function(req, res){
     }
 });
 
- 
+
 
 client.connect()
     .then(() => console.log('Connected Successfully'))

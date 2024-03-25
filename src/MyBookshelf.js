@@ -9,7 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PreviewIcon from '@mui/icons-material/Preview';
 import InfoIcon from '@mui/icons-material/Info';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import CardHeader from '@mui/material/CardHeader';
 import Link from '@material-ui/core/Link';
 import Stack from '@mui/material/Stack';
 import {CardActions} from '@mui/material';
@@ -23,6 +23,7 @@ import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -75,7 +76,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function MyBookshelf (  ) {
     const [data, setData] = useState({items: []});
-    const [searchTerm, setSearchTerm] = useState('Dance');
+    const [searchTerm, setSearchTerm] = useState('Flower');
+   
     const navigate = useNavigate();
     useEffect(() => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key=AIzaSyAluBgD7mOVVMXDF4XWL0CGMN9GM3aTV28`)
@@ -89,11 +91,6 @@ function MyBookshelf (  ) {
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
   }
-   
-  const fontIconClick= (e) => {
-    setSearchTerm(e.target.value);
-  }
-
   const logout=(e)=>{
     sessionStorage.clear();
     navigate('/Home')
@@ -151,30 +148,33 @@ function MyBookshelf (  ) {
         <LogoutIcon></LogoutIcon>
       </IconButton>
       </Badge>
-        
-                </Toolbar>
-             
-              </Container>
-            </AppBar>
-      
-          <Grid container spacing={5} style={{marginTop:"20px"}}>
+      </Toolbar>
+      </Container>
+      </AppBar>
+          <Grid container spacing={3} style={{marginTop:"20px"}}>
             {
               data.items.map((result,index)=>(
                 
                 <Grid item xs={12} sm={4} ms={4} key={index} >
-                  <Card sx={{ maxWidth: 500 }}>         
+                  <Card sx={{ maxWidth: 500 }}>
+                  <CardHeader 
+                 title={
+                  <Typography gutterBottom noWrap variant="body1"  component="h2">
+                    {result.volumeInfo.title}
+                  </Typography> 
+                 }
+                 style={{textAlign:"center",backgroundColor:"cornsilk"}}
+                 />     
                   <CardMedia
-                    sx={{ height: 350 }}
+                    sx={{ height: 350}}
                     image= {`http://books.google.com/books/content?id=${result.id}&printsec=frontcover&img=1&zoom=1&edge=curl`}
                     title={result.volumeInfo.title}
+                    
                   />
-                  <CardContent>
+                  <CardContent  style={{textAlign:"center",backgroundColor:"cornsilk"}}>
                   <Typography gutterBottom noWrap variant="body2"  inline  >
-                  {result.volumeInfo.title}
+                  {result.volumeInfo.authors}
                   </Typography>
-                  <Typography variant="subheading"  >
-                          {result.volumeInfo.authors}
-                        </Typography>
                   </CardContent>
                   <Divider />
                   <CardActions>
@@ -188,12 +188,10 @@ function MyBookshelf (  ) {
                         <Link href={result.saleInfo.buyLink}  target="_blank" >
                         <ShoppingCartIcon ></ShoppingCartIcon>
                         </Link>
-                        <div class="font-icon-wrapper" onClick={fontIconClick}>
-                        <FavoriteIcon></FavoriteIcon>
-                        </div>
-                        <Typography gutterBottom noWrap variant="body2" component="div" textAlign={"right"} >
-                          {result.volumeInfo.publisher}
+                        <Typography gutterBottom noWrap variant="body2" component="div" textAlign={"unset"} >
+                       {result.volumeInfo.publisher}
                         </Typography>
+                       
                     </Stack>
                 </CardActions> 
                 </Card>
