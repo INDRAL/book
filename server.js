@@ -26,7 +26,8 @@ require('dotenv').config();
 
 
 
-app.post("/login", async function(req, res){
+app.post("/login", async function(req, res)
+{
   try {
       console.log(req.body);
       const user = await usersCollection.findOne({ emailid :req.body.uemail},{name:1,paswd:1});

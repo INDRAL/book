@@ -80,7 +80,7 @@ function MyBookshelf (  ) {
    
     const navigate = useNavigate();
     useEffect(() => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key=AIzaSyAluBgD7mOVVMXDF4XWL0CGMN9GM3aTV28`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key={place your api key here}`)
     .then(response => response.json())
     .then(result => setData(result));
     console.log(data)
