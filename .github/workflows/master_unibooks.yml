@@ -59,4 +59,4 @@ jobs:
           app-name: 'Unibooks'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_66B524A432E74351BBDE4A8E442E227A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_605C9D58106B4438898AF5519B67E2DE }}
