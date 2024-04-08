@@ -80,7 +80,7 @@ function MyBookshelf (  ) {
    
     const navigate = useNavigate();
     useEffect(() => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key={place your api key here}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key=AIzaSyDVqOWoSU3UhbVb5GOzhUH51I5Q_EDA74A `)
     .then(response => response.json())
     .then(result => setData(result));
     console.log(data)
@@ -163,7 +163,7 @@ function MyBookshelf (  ) {
                     {result.volumeInfo.title}
                   </Typography> 
                  }
-                 style={{textAlign:"center",backgroundColor:"cornsilk"}}
+                 style={{textAlign:"center",backgroundColor:"rgb(245, 142, 104)"}}
                  />     
                   <CardMedia
                     sx={{ height: 350}}
@@ -171,14 +171,14 @@ function MyBookshelf (  ) {
                     title={result.volumeInfo.title}
                     
                   />
-                  <CardContent  style={{textAlign:"center",backgroundColor:"cornsilk"}}>
+                  <CardContent  style={{textAlign:"center"}}>
                   <Typography gutterBottom noWrap variant="body2"  inline  >
                   {result.volumeInfo.authors}
                   </Typography>
                   </CardContent>
                   <Divider />
-                  <CardActions>
-                    <Stack direction="row" spacing={4}>
+                  <CardActions >
+                    <Stack direction="row" spacing={4} >
                         <Link href={result.volumeInfo.infoLink}  target="_blank" >
                         <InfoIcon ></InfoIcon>
                         </Link>

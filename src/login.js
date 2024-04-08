@@ -21,7 +21,7 @@ function Login()
 
     // Handle validations
     axios
-      .post(`http://localhost:5000/login`, { uemail, pswd })
+      .post(`http://localhost:5000/login`, { email, paswd })
       .then((resp) => {
         console.log(resp.data)
         var name=resp.data['name'];
@@ -34,8 +34,8 @@ function Login()
       })
     }
 
-  const [uemail, setEmail] = useState()
-  const [pswd, setPassword] = useState()
+  const [email, setEmail] = useState()
+  const [paswd, setPassword] = useState()
  
   return (
     <div >
