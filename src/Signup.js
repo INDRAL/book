@@ -37,21 +37,19 @@ const validateemail = e =>
     // Prevent the default submit and page reload
     e.preventDefault()
 if (paswd !== cpaswd) {
-        <Alert variant="filled" severity="error">
-  This is a filled error Alert.
-</Alert>
+        alert("password do not match")
     } 
-    // Handle validations
-      Axios.post('/register', { email, paswd }).then((resp) => {
+else
+{
+      Axios.post('/register', { email, paswd,name}).then((resp) => {
         console.log(resp.data)
-        var name=resp.data['name'];
-        sessionStorage.setItem("name",name);
         if(resp.status===200)
         {
-          navigate('/Mybookshelf')
+          navigate('/Login')
 
         }
       })
+}
     }
 
 
@@ -139,7 +137,7 @@ const [cpaswd, setConfirmPassword] = useState()
     <label for="email">User Name</label>
       <input class="form-control" id="name" type="name" name="name" onChange={(e) => {setName(e.target.value) }}/>
     </div><br></br>
-    <input class="btn btn-danger" type="submit" value="Submit"/>
+  <input class="btn btn-danger" type="submit" value="Submit"/>
     </div>
     </form>
     </Card>

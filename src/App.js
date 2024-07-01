@@ -9,7 +9,7 @@ import MyBookshelf from './MyBookshelf';
 import Signup from './Signup';
 import Axios from "axios";
 
-Axios.defaults.baseURL = "http://ec2-54-80-124-46.compute-1.amazonaws.com:8188/";
+Axios.defaults.baseURL = "http://ec2-3-105-185-92.ap-southeast-2.compute.amazonaws.com:8188";
 function App() {
   
     return (

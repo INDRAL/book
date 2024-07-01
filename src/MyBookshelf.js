@@ -23,6 +23,8 @@ import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
+import BookIcon from '@mui/icons-material/Book';
+import { Button } from '@mui/material';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -76,27 +78,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function MyBookshelf (  ) {
     const [data, setData] = useState({items: []});
-    const [searchTerm, setSearchTerm] = useState('Flower');
-   
-    const navigate = useNavigate();
-    useEffect(() => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40&printsec=frontcover&img=1&zoom=10&key=AIzaSyDVqOWoSU3UhbVb5GOzhUH51I5Q_EDA74A `)
-    .then(response => response.json())
-    .then(result => setData(result));
-    console.log(data)
-  },[searchTerm])
+    const [searchTerm, setSearchTerm] = useState('deer');
+    const [error, setError] = useState(null);
 
+    const navigate = useNavigate();
+   useEffect(() => {
+fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20&printsec=frontcover&img=1&zoom=10&key=AIzaSyDVqOWoSU3UhbVb5GOzhUH51I5Q_EDA74A `)
+    .then(response => response.json())
+    .then(result => setData(result))
+    console.log(data)
+},[searchTerm]) 
   
-  
+
   const onInputChange = (e) => {
+    e.preventDefault();
     setSearchTerm(e.target.value);
-  }
+}
+
+
+
   const logout=(e)=>{
     sessionStorage.clear();
     navigate('/Home')
   }
 
-  
+ function getIsbn(i)
+ {
+   alert(i);
+  } 
     return (
       <div style={{ height: 350, width: '100%' }}>
         <Container maxWidth={false} disableGutters>
@@ -140,7 +149,7 @@ function MyBookshelf (  ) {
           placeholder="Search…"
           inputProps={{ 'aria-label': 'search' }}
           value={searchTerm}
-            onChange={onInputChange}
+          onChange={(e) => onInputChange(e)}
         />
         </Search>
         <Badge badgeContent={sessionStorage.getItem('name')} color="primary">
@@ -153,6 +162,7 @@ function MyBookshelf (  ) {
       </AppBar>
           <Grid container spacing={3} style={{marginTop:"20px"}}>
             {
+              
               data.items.map((result,index)=>(
                 
                 <Grid item xs={12} sm={4} ms={4} key={index} >
@@ -191,18 +201,26 @@ function MyBookshelf (  ) {
                         <Typography gutterBottom noWrap variant="body2" component="div" textAlign={"unset"} >
                        {result.volumeInfo.publisher}
                         </Typography>
-                       
+                      <Button
+  onClick={() => {
+         const len=result.volumeInfo.industryIdentifiers[0].identifier.length;
+    alert(len);
+  }}
+>
+ <InfoIcon></InfoIcon>
+</Button> 
                     </Stack>
                 </CardActions> 
                 </Card>
                
                 </Grid>
+                
                   )
                   )
-                  }
+               
+            }
           
           </Grid>
-         
           
           
           </Container>

@@ -19,7 +19,8 @@ app.use(cors());
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/register", async (req, res) => {
+app.post("/register", async function(req, res)
+{
   const {email,paswd,name } = req.body;
   try {
     const user = new User({
@@ -54,7 +55,7 @@ app.post("/login", async function(req, res)
 });
 
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send('hello world')
 })
 
