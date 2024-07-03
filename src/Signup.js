@@ -37,7 +37,8 @@ const validateemail = e =>
     // Prevent the default submit and page reload
     e.preventDefault()
 if (paswd !== cpaswd) {
-        alert("password do not match")
+  setAlertContent('password do not match');
+  setAlert(true);
     } 
 else
 {
@@ -45,6 +46,8 @@ else
         console.log(resp.data)
         if(resp.status===200)
         {
+          setAlertContent('User registered successfully');
+          setAlert(true);
           navigate('/Login')
 
         }
@@ -59,6 +62,8 @@ else
   const [paswd, setPassword] = useState()
 const [cpaswd, setConfirmPassword] = useState()
   const [name,setName]=useState()
+  const [alert, setAlert] = useState(false);
+    const [alertContent, setAlertContent] = useState('');
   return (
     <div >
         <Container maxWidth={false} disableGutters>
@@ -141,6 +146,7 @@ const [cpaswd, setConfirmPassword] = useState()
     </div>
     </form>
     </Card>
+    {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
   </Grid>
 </Grid>
 </Container>

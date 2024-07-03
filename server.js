@@ -39,19 +39,25 @@ app.post("/register", async function(req, res)
 
 app.post("/login", async function(req, res)
 {
-  try {
+ 
       console.log(req.body);
       const user = await User.findOne({ email :req.body.email},{name:1,paswd:1});
       if (user) { 
         //check if password matches
-        if(req.body.paswd == user.paswd);
+        const result = req.body.paswd.toUpperCase() === user.paswd.toUpperCase();
+        if(result)
+        {
         res.status(200).send(user);
-      } else {
-        res.status(400).json({ error: "User doesn't exist" });
-      }
-    } catch (error) {
-      res.status(400).json({ error });
-    }
+        }
+        else 
+        {
+          res.sendStatus(203);
+        }
+      } 
+      else 
+        {
+          res.sendStatus(203);
+        }
 });
 
 

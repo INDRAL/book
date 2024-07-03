@@ -30,6 +30,11 @@ function Login()
           navigate('/Mybookshelf')
 
         }
+        else if(resp.status===203)
+        {
+          setAlertContent('email or password do not match');
+          setAlert(true);
+        }
       })
     }
 
@@ -101,8 +106,11 @@ function Login()
     <input class="btn btn-danger" type="submit" value="Submit"/>
     </div>
     </form>
+    <p><a href="/signup" class="link-underline-danger">New User,please register</a></p>
     </Card>
+    
   </Grid>
+  {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
 </Grid>
 </Container>
 </div>
