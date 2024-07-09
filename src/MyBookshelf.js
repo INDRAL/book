@@ -79,8 +79,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function MyBookshelf (  ) {
     const [data, setData] = useState({items: []});
     const [searchTerm, setSearchTerm] = useState('deer');
-    const [error, setError] = useState(null);
-
+    
     const navigate = useNavigate();
    useEffect(() => {
 fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20&printsec=frontcover&img=1&zoom=10&key=AIzaSyDVqOWoSU3UhbVb5GOzhUH51I5Q_EDA74A `)
