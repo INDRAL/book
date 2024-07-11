@@ -40,7 +40,9 @@ function Login()
 
   const [email, setEmail] = useState()
   const [paswd, setPassword] = useState()
- 
+  const [alert, setAlert] = useState(false);
+  const [alertContent, setAlertContent] = useState('');
+  
   return (
     <div >
         <Container maxWidth={false} disableGutters>
