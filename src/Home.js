@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 const pages = ['Login'];
-
+ function Home() {
     const navigate = useNavigate();
   const openmenu=()=>{
     navigate('/Login');
