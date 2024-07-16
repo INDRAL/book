@@ -143,8 +143,9 @@ const [cpaswd, setConfirmPassword] = useState()
   <input class="btn btn-danger" type="submit" value="Submit"/>
     </div>
     </form>
+     {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
     </Card>
-    {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
+   
   </Grid>
 </Grid>
 </Container>
