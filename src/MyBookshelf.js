@@ -143,12 +143,14 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20
         <SearchIconWrapper>
         <SearchIcon />
         </SearchIconWrapper>
+        <Tooltip title="Type with D" arrow>
         <StyledInputBase
           placeholder="Search…"
           inputProps={{ 'aria-label': 'search' }}
           value={searchTerm}
           onChange={(e) => onInputChange(e)}
         />
+         </Tooltip>
         </Search>
         <Badge badgeContent={sessionStorage.getItem('name')} color="primary">
         <IconButton  onClick={logout} sx={{ p: 0 }}>
