@@ -24,7 +24,7 @@ Login with username and password.In this case Email:angai94@gmail.com,password:h
 
 **MyBookshelf**
 
-Type the search Term,it will display all the related books.
+Type the search Term,it will display all the related books.Don't remove D in search bar
 
 **signup**
 
