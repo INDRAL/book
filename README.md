@@ -10,11 +10,7 @@ Runs the app in the development mode.\
 Open https://bookshelf-g2al.onrender.com/Home to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `Backend`
-Open https://book-server-h3i4.onrender.com/
-Launches the server.\
 
 ### `Functionalities`
 
