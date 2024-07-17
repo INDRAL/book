@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can the home page
 
 Runs the app in the development mode.\
-Open https://bookshelf-g2al.onrender.com/Home to view it in your browser.
+Open https://bookshelf-g2al.onrender.com/Home to view it in your browser.It will take some time to load.
 
 The page will reload when you make changes.\
 
