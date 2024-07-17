@@ -29,7 +29,7 @@ Login with username and password.In this case Email:angai94@gmail.com,password:h
 Type the search Term,it will display all the related books.Don't remove D in search bar
 ![Screenshot 2024-07-16 194842](https://github.com/user-attachments/assets/42a037d1-435f-4a55-a4c4-c0bd57bc5867)
 ![Screenshot 2024-07-17 134644](https://github.com/user-attachments/assets/10095708-f6a4-4dc8-a6fe-60dc012cb7e7)
-
+Info,preview and buy link is given
 
 **signup**
 
