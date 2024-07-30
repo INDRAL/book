@@ -90,7 +90,14 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20
 
   const onInputChange = (e) => {
     e.preventDefault();
-    setSearchTerm(e.target.value);
+   if(e.target.value.length==0)
+     {
+      setSearchTerm("apple");
+     }
+     else
+    {
+      setSearchTerm(e.target.value);
+    }
 }
 
 
