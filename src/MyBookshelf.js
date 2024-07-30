@@ -154,7 +154,6 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20
         <StyledInputBase
           placeholder="Search…"
           inputProps={{ 'aria-label': 'search' }}
-          value={searchTerm}
           onChange={(e) => onInputChange(e)}
         />
          </Tooltip>
